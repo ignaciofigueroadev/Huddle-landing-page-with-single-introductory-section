@@ -1,0 +1,150 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+body {  
+    background-color: $violet;
+    background-image: url(../images/bg-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: $white;
+    font-family: $fontPoppins
+}
+
+.header {
+    @include flex(flex, row, flex-start, center);
+    width: 100%;
+    height: 5em;
+    flex-wrap: wrap;
+    padding-top: 1em;
+    
+    &__logo {
+        width: 10em;
+        margin-left: 2em;
+    }
+}
+
+.main {
+    @include flex(flex, column, center, center,);
+    width: 100vw;
+    height: 100%;
+    padding: 2em;
+}
+
+.container--image{
+    min-width: 50%;
+}
+
+.container--info {
+    @include flex(flex, column, center, center);
+    text-align: center;
+    padding: 2em;
+    flex-grow: 5;
+
+    .container__title { 
+        margin: .25em 0 1em 0;
+        font-size: 1.75em;
+        line-height: 1.25em;
+        font-weight: 700;
+    }
+
+    .container__button {
+        width: 15em;
+        padding: .75em;
+        margin-top: 2em;
+        background-color: $white;
+        color: $violet; 
+        border-radius: 5em;
+        transition: background-color .1s ease-in;
+        box-shadow: 
+        5px 1px 11px 3px rgba(0,0,0,0.38);
+        -webkit-box-shadow: 5px 1px 11px 3px rgba(0,0,0,0.38);
+        -moz-box-shadow: 5px 1px 11px 3px rgba(0,0,0,0.38);     ;
+    }
+
+    .container__button:hover {
+        background-color: $softMagenta;
+        color: $white;
+        cursor: pointer; 
+    }
+
+}
+
+.icons {
+    @include flex(flex, row, center, center);
+    width: 100%;
+    padding: 2em;
+
+    &__item {
+        margin: .5em;
+        padding: 1em;
+        font-size: 1em;
+        border: 1px solid $white;
+        border-radius: 100%;
+    }
+
+    &__item:hover {
+        color: $softMagenta;
+        border-color: $softMagenta;
+        cursor: pointer;
+    }
+}
+
+.attribution {
+    width: 100%;
+    text-align: center;
+    font-size: .75em;
+
+    &__link:hover {
+        color: $softMagenta;
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 1028px) {
+    body {
+        background-color: $violet;
+        background-image: url(../images/bg-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .header {
+        padding: 3em;
+
+        &__logo {
+            margin-left: -10px;
+        }
+    }
+
+    .main {
+        flex-direction: row;
+        padding: 8em;
+    }
+
+    .container--info{
+        text-align: left
+        ;
+
+        .container__title {
+            font-size: 2em;
+        }
+
+        .container__text {
+            font-size: .85em;
+        }
+    }
+
+    .icons {
+        padding: 0;
+        justify-content: flex-end;
+        padding: 1em;
+        margin-top: -70px;
+
+        &__item {
+            font-size: 1em;
+        }
+    }
+}
+
+
